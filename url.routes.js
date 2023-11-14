@@ -6,7 +6,7 @@ urlRouter.post('/shorten', async (req, res) => {
   try {
     const { originalUrl, customUrl, expirationTime } = req.body;
     const shortUrl = customUrl || shortid.generate();
-    const existingUrl = await urlModal.findOne({ shortUrl });
+    const existingUrl = await urlModal.findOne({ shortUrl:shortUrl });
     if (existingUrl) {
       return res.status(400).json({ error: 'Custom URL already exists' });
     }
