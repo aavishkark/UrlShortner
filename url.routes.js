@@ -16,7 +16,7 @@ urlRouter.post('/shorten', async (req, res) => {
       expirationTime,
     });
     await url.save();
-    res.status(201).json({ shortUrl: `${req.protocol}://${req.get('host')}/${shortUrl}`, shortid:shortUrl });
+    res.status(201).json({ shortUrl: `https://shortUrl.com/${shortUrl}`, shortid:shortUrl });
   } catch (error) {
     console.error('Error:', error);
     res.status(500).json({ error: 'Internal Server Error' });
@@ -41,7 +41,6 @@ urlRouter.post('/shorten', async (req, res) => {
         }
       }
   
-      //res.redirect(url.originalUrl);
       res.status(200).send({ url: `${url.originalUrl}` })
     } catch (error) {
       console.error('Error:', error);
