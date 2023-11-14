@@ -1,7 +1,7 @@
 const mongoose=require("mongoose")
 const shortid = require('shortid');
 const urlSchema=mongoose.Schema({
-  originalUrl: {type:String},
+  originalUrl: {String},
   shortUrl: { type: String, unique: true, default: shortid.generate },
   createdAt: { type: Date, default: Date.now },
   expirationTime: { type: Number, default: 0 },
